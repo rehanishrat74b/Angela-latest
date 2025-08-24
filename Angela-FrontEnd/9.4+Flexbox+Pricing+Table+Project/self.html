@@ -1,0 +1,116 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Flexbox Pricing Table</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    .flex-container {
+      display: flex;
+      height: 100vh;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      /* optional: add wrap if you plan to add more items */
+      flex-wrap: wrap;
+      /*border: 2px dotted black;*/
+    }
+
+    .flex-item {
+      flex: 0 1 400px;
+      /* grow: 1, shrink: 0, basis: 200px */
+      text-align: center;
+      background-color: #D4D4D8;
+      /*border: 2px solid black;*/
+      padding: 20px;
+      min-height: 200px;
+      min-width: 400px;
+
+    }
+
+    @media (width < 500px) {
+      .flex-container {
+        flex-direction: column;
+        height: 100%;
+      }
+    }
+
+    .pricing-table {
+      /*border: 2px dotted black;*/
+      flex: 1;
+      max-width: 400px;
+      padding: 20px;
+      background-color: #D4D4D8;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    .price-title {
+      font-size: 24px;
+      font-weight: bold;
+
+    }
+
+    .price-package {
+      font-size: 48px;
+      font-weight: bold;
+
+    }
+
+
+    li {
+      list-style: none;
+      /*border: 2px solid black;*/
+      text-align: left;
+      margin-bottom: 2px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="flex-container">
+    <div class="flex-item">
+      <div class="pricing-table">
+        <p class="price-title">Basic</p>
+        <p class="price-package">$ 11.99 / month</p>
+        <ul>
+          <li>✅ 10GB Storage</li>
+          <li>✅ 1 User</li>
+          <li>🚫 Support</li>
+
+        </ul>
+      </div>
+    </div>
+
+    <div class="flex-item">
+      <div class="pricing-table">
+        <p class="price-title">Standard</p>
+        <p class="price-package">$ 19.99 / month</p>
+        <ul>
+          <li>✅ 50GB Storage</li>
+          <li>✅ 5 Users</li>
+          <li>✅ Phone & Email suppport</li>
+
+        </ul>
+      </div>
+    </div>
+
+    <div class="flex-item">
+      <div class="pricing-table">
+        <p class="price-title">Premium</p>
+        <p class="price-package">$ 49.99 / month</p>
+        <ul>
+          <li>✅ 100GB Storage</li>
+          <li>✅ 10 Users</li>
+          <li>✅ 24/7 Support</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>

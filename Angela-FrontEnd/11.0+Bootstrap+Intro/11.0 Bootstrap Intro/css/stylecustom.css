@@ -1,0 +1,20 @@
+    .bg-body-tertiary {
+      background-color: black !important;
+
+    }
+
+    .nav-link {
+      color: white !important;
+    }
+
+    .disabled {
+      color: red !important;
+    }
+
+    .active {
+      color: white !important;
+    }
+
+    .navbar-brand {
+      color: white !important;
+    }

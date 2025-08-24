@@ -1,0 +1,51 @@
+.gradient-background {
+  /*background: linear-gradient(300deg, #00bfff, #ff4c68, #ef8172);
+  background-size: 180% 180%;
+  animation: gradient-animation 18s ease infinite;*/
+  background: #2A7B9B;
+    background: linear-gradient(90deg, rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
+    /*
+      Starts at 42, 123, 155 (blue tone)
+      Transitions to 87, 199, 133 (greenish)
+      Ends with 237, 221, 83 (yellow)
+      
+      Spread at 0%, 50%, 100% along 90° (left-to-right). 
+      
+      */
+    animation: gradient-animation 18s ease infinite;
+      /*
+        Lasts 18 seconds for one full left-to-right-left cycle
+        Ease makes acceleration/deceleration smooth
+        Infinite makes it loop forever
+        
+        */
+    background-size: 180% 180%;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+/*
+Moves the gradient horizontally from left (0%) to right (100%) and back
+
+50% Y-axis keeps it centered vertically
+*/
+
+.icon-square {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+}
+
+.profile-img {
+  border-radius: 50%;
+  height: 100px;
+}

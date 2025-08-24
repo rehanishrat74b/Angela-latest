@@ -1,0 +1,69 @@
+body{
+  text-align: center;
+  background-color:#ECEEDF ;
+  color:#CFAB8D;
+}
+h1{
+  font-family: "Leckerli One", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 6rem;
+}
+
+.container{
+  margin:auto;
+  text-align: center;
+  width:80%;
+  /*border:2px solid black;*/
+}
+.drum{
+  display: inline-block;
+  margin: 20px 20px 20px 20px;
+  position: relative;
+
+/* to give visual effect for click event*/
+    cursor: pointer;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+img{
+  width:100px;
+  height: 100px;
+}
+
+.drum img {
+  display: block;
+  border-radius: 10px;
+  /* optional */
+  transition: transform 0.1s ease;
+}
+/* Visual effect when clicked */
+.drum.active {
+  transform: scale(0.9);
+  /* shrink slightly */
+  box-shadow: 0 0 20px #CFAB8D;
+  /* glowing effect */
+ 
+}
+
+.drum.active img {
+  transform: scale(0.9) rotate(45deg);
+  filter: brightness(1.2);
+  /* highlight the image */
+}
+
+.drum-text {
+  position: absolute;
+  top: 50%;
+  /* vertical center */
+  left: 50%;
+  /* horizontal center */
+  transform: translate(-50%, -50%);
+  /* perfectly center */
+  font-size: 4rem;
+  /* adjust size as needed */
+  font-weight: bold;
+  color: #BBDCE5;
+  /* make it visible on the image */
+  text-shadow: 2px 2px 4px black;
+  /* optional for contrast */
+}

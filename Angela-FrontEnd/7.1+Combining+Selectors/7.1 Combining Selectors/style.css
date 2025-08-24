@@ -1,0 +1,22 @@
+/* Write your code here: */
+h1,h2{
+  color: blueviolet;
+}
+.box > .done {
+  color:firebrick;
+  /*parent > child*/
+}
+.box li{
+  color: blue;
+  /*ancestor descendent*/
+}
+li.done{
+  color:seagreen;
+  /*chain selector*/
+}
+
+ul p.done {
+  font-size: 2rem;
+  /*ancestor and chain selector combiners*/
+  /*ul > p.done will also work*/
+}

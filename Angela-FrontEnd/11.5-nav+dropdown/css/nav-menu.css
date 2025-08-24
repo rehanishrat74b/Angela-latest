@@ -1,0 +1,116 @@
+/* Navmenu - Desktop */
+@media (min-width: 1200px) {
+  /*.navbar-nav {
+    padding: 0;
+  }
+*/
+  .navbar-nav ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    align-items: center;
+  }
+
+  .navbar-nav li {
+    position: relative;
+  }
+
+  .navbar-nav a,
+  .navbar-nav a:focus {
+    color: var(--nav-color);
+    padding: 18px 15px;
+    /*font-size: 16px;
+    font-family: var(--nav-font);
+    font-weight: 600;*/
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+    transition: 0.3s;
+    text-decoration: none;
+  }
+
+  .navbar-nav a i,
+  .navbar-nav a:focus i {
+    font-size: 12px;
+    line-height: 0;
+    margin-left: 5px;
+    transition: 0.3s;
+  }
+
+  .navbar-nav li:last-child a {
+    padding-right: 0;
+  }
+
+  .navbar-nav li:hover>a,
+  .navbar-nav .active,
+  .navbar-nav .active:focus {
+    color: var(--nav-hover-color);
+  }
+
+  /*.navbar-nav .dropdown>.dropdown-active {
+    display: block;
+    background-color: rgba(33, 37, 41, 0.03);
+   
+  }*/
+
+  .navbar-nav .dropdown ul {
+    margin: 0;
+    padding: 10px 0;
+    background: var(--nav-dropdown-background-color);
+    display: block;
+    position: absolute;
+    visibility: hidden;
+    left: 14px;
+    top: 130%;
+    opacity: 0;
+    transition: 0.3s;
+    border-radius: 4px;
+    z-index: 99;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar-nav .dropdown ul li {
+    min-width: 200px;
+  }
+
+  .navbar-nav .dropdown ul a {
+    padding: 10px 20px;
+    font-size: 15px;
+    text-transform: none;
+    color: var(--nav-dropdown-color);
+    
+  }
+
+  .navbar-nav .dropdown ul a i {
+    font-size: 12px;
+  }
+
+  .navbar-nav .dropdown ul a:hover,
+  .navbar-nav .dropdown ul .active:hover,
+  .navbar-nav .dropdown ul li:hover>a {
+    color: var(--nav-dropdown-hover-color);
+    background-color: #0d6efd;
+  }
+
+  /* it displays the dropdown menu */
+  .navbar-nav .dropdown:hover>ul {
+    opacity: 1;
+    top: 100%;
+    visibility: visible;
+  }
+
+  .navbar-nav .dropdown .dropdown ul {
+    top: 0;
+    left: -90%;
+    visibility: hidden;
+  }
+
+  .navbar-nav .dropdown .dropdown:hover>ul {
+    opacity: 1;
+    top: 0;
+    left: -100%;
+    visibility: visible;
+  }
+}
