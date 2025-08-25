@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GLightbox Gallery Example</title>
+  <!-- Load GLightbox CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      padding: 40px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .gallery a img {
+      width: 200px;
+      height: 130px;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .gallery a img:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>GLightbox Gallery with Captions</h1>
+
+  <div class="gallery">
+
+    <a href="https://picsum.photos/id/1015/1200/800" class="glightbox" data-gallery="gallery1" >
+      <img src="https://picsum.photos/id/1015/400/300" alt="Forest">
+    </a>
+
+    <a href="https://picsum.photos/id/1018/1200/800" class="glightbox" data-gallery="gallery1"
+      >
+      <img src="https://picsum.photos/id/1018/400/300" alt="Mountain View">
+    </a>
+
+    <a href="https://picsum.photos/id/1015/1200/800" class="glightbox" data-gallery="gallery1"
+      >
+      <img src="https://picsum.photos/id/1015/400/300" alt="Forest">
+    </a>
+
+    <a href="https://picsum.photos/id/1019/1200/800" class="glightbox" data-gallery="gallery1"
+      >
+      <img src="https://picsum.photos/id/1019/400/300" alt="Lake">
+    </a>
+
+    <a href="https://picsum.photos/id/1025/1200/800" class="glightbox" data-gallery="gallery1"
+      >
+      <img src="https://picsum.photos/id/1025/400/300" alt="Cute Dog">
+    </a>
+    <!-- Video -->
+    <a href="https://vimeo.com/115041822" class="glightbox" data-gallery="gallery1">
+      <img src="youtube.jpeg" alt="image" />
+    </a>
+  </div>
+
+  <!-- Load GLightbox JS -->
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      GLightbox({
+        selector: '.glightbox'
+      });
+    });
+  </script>
+</body>
+
+</html>
