@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  
+        <h1 class="hero-title" data-aos="zoom-in" data-aos-delay="200">
+          Transform Your Workflow With<br>
+          <span class="typed" data-typed-items="Advanced Analytics,Seamless Integration,Robust Security"></span>
+        </h1>
+              
+        <script>
+            function aosInit() {
+                AOS.init({
+                    duration: 600,
+                    easing: 'ease-in-out',
+                    once: true,
+                    mirror: false
+                    });
+                }
+            window.addEventListener('load', aosInit);
+
+            const selectTyped = document.querySelector('.typed');
+            if (selectTyped) {
+              let typed_strings = selectTyped.getAttribute('data-typed-items');
+              typed_strings = typed_strings.split(',');
+              new Typed('.typed', {
+                strings: typed_strings,
+                loop: true,
+                typeSpeed: 100,
+                backSpeed: 50,
+                backDelay: 2000
+              });
+            }
+
+        </script>
+</body>
+</html>
