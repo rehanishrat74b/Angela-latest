@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Constant Speed Typewriter Loop</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f4f4f4;
+    }
+
+    h1 {
+      font-family: monospace;
+      border-right: 3px solid black;
+      /* blinking cursor */
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 id="typewriter"></h1>
+
+  <script>
+    const text = "Hello, welcome to my website!";
+    const element = document.getElementById("typewriter");
+    let index = 0;
+    let direction = 1; // 1 = typing, -1 = deleting
+    const speed = 100; // constant speed (ms per character)
+
+    function typeLoop() {
+      element.textContent = text.substring(0, index);
+      index += direction;
+
+      if (index > text.length) {
+        direction = -1; // start deleting
+        index = text.length;
+      } else if (index < 0) {
+        direction = 1; // start typing again
+        index = 0;
+      }
+
+      setTimeout(typeLoop, speed);
+    }
+
+    typeLoop();
+  </script>
+</body>
+
+</html>

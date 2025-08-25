@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typing on Scroll</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  
+  <style>
+    body {
+      height: 200vh;
+      /* Make page scrollable */
+      font-family: sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 300px;
+      font-size: 3rem;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 id="typewriter" class="typed" data-aos="fade-up"></h1>
+
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: false // allow animation each time you scroll back
+    });
+
+    let typedInstance = null;
+
+    const observer = new IntersectionObserver((entries) => {
+      console.log(entries);
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Element in view: start typing
+          if (typedInstance) {
+            typedInstance.destroy(); // destroy previous instance
+          }
+          typedInstance = new Typed('#typewriter', {
+            strings: ["Hello", "Welcome", "Enjoy"],
+            typeSpeed: 100,
+            backSpeed: 100,
+            backDelay: 500,
+            loop: true,
+            smartBackspace: false,
+            cursorChar: '|'
+          });
+        } else {
+          // Element left the view: stop typing (optional)
+          if (typedInstance) {
+            typedInstance.destroy();
+            typedInstance = null;
+            document.getElementById('typewriter').textContent = ''; // clear text
+          }
+        }
+      });
+    }, { threshold: 0.5 }); // triggers when 50% visible
+
+    observer.observe(document.getElementById('typewriter'));
+  </script>
+</body>
+
+</html>

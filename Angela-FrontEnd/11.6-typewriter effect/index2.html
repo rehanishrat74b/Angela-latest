@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word by Word Typewriter</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f4f4f4;
+    }
+
+    h1 {
+      font-family: monospace;
+      border-right: 3px solid black;
+      /* cursor effect */
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 id="typewriter"></h1>
+
+  <script>
+    const words = ["Hello", "Welcome", "Enjoy"]; // your comma-separated words
+    const element = document.getElementById("typewriter");
+
+    let wordIndex = 0; // which word
+    let charIndex = 0; // which character
+    let direction = 1; // 1 = typing, -1 = deleting
+    const speed = 100; // constant speed per character
+
+    function typeLoop() {
+      const currentWord = words[wordIndex];
+      element.textContent = currentWord.substring(0, charIndex);
+      charIndex += direction;
+
+      // When typing is done for current word
+      if (charIndex > currentWord.length) {
+        direction = -1; // start deleting
+      }
+
+      // When deleting is done
+      if (charIndex < 0) {
+        direction = 1; // start typing next word
+        wordIndex = (wordIndex + 1) % words.length; // move to next word
+      }
+
+      setTimeout(typeLoop, speed);
+    }
+
+    typeLoop();
+  </script>
+</body>
+
+</html>
