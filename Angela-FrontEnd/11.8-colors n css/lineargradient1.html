@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Mix Gradient Demo</title>
+  <style>
+    :root {
+      --surface-color: #ffffff;
+      /* white */
+      --accent-color: #ff0000;
+      /* red */
+    }
+
+    body {
+      font-family: sans-serif;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 40px;
+      background: #eee;
+    }
+
+    .box {
+      height: 150px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .mix-3 {
+      background: linear-gradient(135deg,
+          color-mix(in srgb, var(--surface-color), var(--accent-color) 3%) 0%,
+          var(--surface-color) 100%);
+    }
+
+    .mix-20 {
+      background: linear-gradient(135deg,
+          color-mix(in srgb, var(--surface-color), var(--accent-color) 20%) 0%,
+          var(--surface-color) 100%);
+    }
+
+    .mix-50 {
+      background: linear-gradient(135deg,
+          color-mix(in srgb, var(--surface-color), var(--accent-color) 50%) 0%,
+          var(--surface-color) 100%);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box mix-3">3% Accent</div>
+  <div class="box mix-20">20% Accent</div>
+  <div class="box mix-50">50% Accent</div>
+</body>
+
+</html>

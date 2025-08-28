@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background: coral;
+      margin: 30px;
+      transition: transform 0.5s ease;
+    }
+
+    .box:hover {
+      transform: translateX(50px) rotate(45deg) scale(1.2); /*multiple transforms*/
+      
+    }
+    /*
+    transform: translate(50px, 20px); //Moves the element right by 50px and down by 20px.
+    transform: scale(1.5); // Increases size 1.5× bigger.
+    transform: scale(2, 0.5); // 2x wide, half height 
+    transform: rotate(45deg); // Rotates the element 45° clockwise around its center.
+    transform: skew(20deg, 10deg); // Slants the element along the X-axis (20°) and Y-axis (10°).
+                                   //Creates a "tilted" effect.
+
+    */
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+</body>
+
+</html>
