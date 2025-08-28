@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>3D Flip Card</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #e9ecef;
+      font-family: Arial, sans-serif;
+    }
+
+    .scene {
+      width: 300px;
+      height: 200px;
+      perspective: 1000px;
+      /* Camera depth */
+    }
+
+    .card {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      /* Keep children 3D */
+      transition: transform 1s ease;
+      cursor: pointer;
+    }
+
+    .scene:hover .card {
+      transform: rotateY(180deg);
+      /* Flip effect */
+    }
+
+    .card__face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      /* Hide backside when facing away */
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: white;
+    }
+
+    .card__face--front {
+      background: linear-gradient(135deg, #007bff, #00c6ff);
+    }
+
+    .card__face--back {
+      background: linear-gradient(135deg, #ff5722, #ff9800);
+      transform: rotateY(180deg);
+      /* Back side flipped */
+    }
+  </style>
+</head>
+<!--
+🔹 How it Works
+.scene → gives perspective (like a camera lens).
+.card → rotates in 3D with transform-style: preserve-3d.
+.card__face--front → visible by default.
+.card__face--back → rotated 180° on Y-axis (hidden until flipped).
+On hover, the .card rotates 180deg, revealing the back.
+-->
+<body>
+  <div class="scene">
+    <div class="card">
+      <div class="card__face card__face--front">FRONT</div>
+      <div class="card__face card__face--back">BACK</div>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f0f0f0;
+    }
+
+    .scene {
+      perspective: 800px;
+      /* depth effect */
+    }
+
+    .card {
+      width: 200px;
+      height: 300px;
+      background: coral;
+      transition: transform 1s;
+      transform-style: preserve-3d;
+      /* keep children 3D */
+    }
+
+    .scene:hover .card {
+      transform: rotateY(180deg);
+      /*transform: rotateX(180deg);*/
+    }
+  </style>
+</head>
+
+<body>
+  <div class="scene">
+    <div class="card"></div>
+    
+  </div>
+</body>
+
+</html>

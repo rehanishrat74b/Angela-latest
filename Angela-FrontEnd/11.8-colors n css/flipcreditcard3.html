@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>3D Credit Card Flip (Fixed)</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #121212;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .scene {
+      width: 400px;
+      height: 250px;
+      perspective: 1200px;
+      /* depth */
+    }
+
+    .card {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 1s ease;
+      cursor: pointer;
+    }
+
+    .scene:hover .card {
+      transform: rotateY(180deg);
+    }
+
+    .card__face {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+      backface-visibility: hidden;
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+      overflow: hidden;
+      color: white;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* --- FRONT --- */
+    .card__face--front {
+      background: linear-gradient(135deg, #007bff, #00c6ff);
+      position: absolute;
+    }
+
+    /* Shine effect */
+    .card__face--front::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(120deg,
+          rgba(255, 255, 255, 0.25) 0%,
+          rgba(255, 255, 255, 0.05) 40%,
+          transparent 60%);
+      transform: rotate(25deg);
+      animation: shine 4s infinite;
+    }
+
+    @keyframes shine {
+      0% {
+        transform: translateX(-150%) rotate(25deg);
+      }
+
+      50% {
+        transform: translateX(150%) rotate(25deg);
+      }
+
+      100% {
+        transform: translateX(-150%) rotate(25deg);
+      }
+    }
+
+    .chip {
+      width: 60px;
+      height: 40px;
+      background: gold;
+      border-radius: 5px;
+    }
+
+    .card-number {
+      font-size: 1.4rem;
+      letter-spacing: 3px;
+      margin-top: 20px;
+    }
+
+    .card-holder,
+    .expiry {
+      font-size: 0.9rem;
+    }
+
+    .bottom-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    /* --- BACK --- */
+    .card__face--back {
+      background: linear-gradient(135deg, #ff5722, #ff9800);
+      transform: rotateY(180deg);
+      position: absolute;
+    }
+
+    .black-strip {
+      background: black;
+      height: 50px;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+
+    .cvv {
+      background: white;
+      color: black;
+      width: 100px;
+      height: 40px;
+      align-self: flex-end;
+      /* keep aligned without shifting card */
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 10px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .signature {
+      text-align: center;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="scene">
+    <div class="card">
+      <!-- FRONT -->
+      <div class="card__face card__face--front">
+        <div class="chip"></div>
+        <div class="card-number">1234 5678 9012 3456</div>
+        <div class="bottom-row">
+          <div class="card-holder">
+            <strong>Card Holder</strong><br>
+            JOHN DOE
+          </div>
+          <div class="expiry">
+            <strong>Expires</strong><br>
+            12/28
+          </div>
+        </div>
+      </div>
+
+      <!-- BACK -->
+      <div class="card__face card__face--back">
+        <div class="black-strip"></div>
+        <div class="cvv">123</div>
+        <div class="signature">Authorized Signature</div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
